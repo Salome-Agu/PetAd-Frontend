@@ -29,9 +29,12 @@ async function cleanupServiceWorkers() {
       continue
     }
 
+    // MSW only ever runs in dev with VITE_MSW=true, so any mockServiceWorker.js
+    // registration we encounter here (e.g. left behind by an earlier dev visit)
+    // is stale in this build and must be removed, not kept.
     const isMswWorker = scriptUrl.endsWith('/mockServiceWorker.js')
 
-    if (!isMswWorker) {
+    if (isMswWorker || !import.meta.env.DEV) {
       await registration.unregister()
       removedStaleWorker = true
     }

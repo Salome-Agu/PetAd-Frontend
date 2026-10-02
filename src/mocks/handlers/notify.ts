@@ -1,6 +1,7 @@
 // TODO: No backend model yet - align field names when Notification is added to Prisma schema.
 // Simulated real-time events enabled for local development when VITE_MSW=true. close #C14
 import { delay, http, HttpResponse } from "msw";
+import { DEFAULT_NOTIFICATION_PREFERENCES } from "../../types/notifications";
 import type {
   Notification,
   NotificationFilter,
