@@ -9,7 +9,6 @@ import type {
   NotificationsPage,
   NotificationType,
 } from "../../types/notifications";
-import { DEFAULT_NOTIFICATION_PREFERENCES } from "../../types/notifications";
 
 const today = new Date();
 const yesterday = new Date(today);
